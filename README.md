@@ -1,4 +1,4 @@
-# CST334
+# CST334 - Operating Systems
 CST334 Labs
 
 
