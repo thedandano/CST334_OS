@@ -99,7 +99,7 @@ void queue_destroy(struct queue *q) {
   struct node* next;
   while(curr != NULL) {
     next = node_get_next(curr);
-    node_destroy(curr);
+    free(curr);
     curr = node_get_next(next);
   }
     q->front  = NULL;

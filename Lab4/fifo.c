@@ -1,3 +1,9 @@
+/**
+* Name: Dan Sedano
+*
+*
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -45,7 +51,8 @@ int main(int argc, char *argv[]){
 
     }
     queue_destroy(q); // free's memory
-
+    free(temp_page);
+    //free(q);
 
     printf("Total valid lines: %d\n", line_counter );
     printf("Total Faults: %d\n", totalFaults);
