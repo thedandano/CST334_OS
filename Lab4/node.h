@@ -1,3 +1,10 @@
+/**
+ *  Name: Dan Sedano
+ *  Date: 2020-03-29
+ *  Title: Lab 4 node.h
+ *  Description: This is the headerfile for node. 
+*/
+
 #ifndef _node_H_
 #define _node_H_
 

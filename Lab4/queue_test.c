@@ -1,3 +1,11 @@
+/**
+ *  Name: Dan Sedano
+ *  Date: 2020-03-29
+ *  Title: Lab 4 queue_test
+ *  Description: This file is a tester file to ensure queue and node were implemented correctly.
+ *  The file was provided by Prof. Lamble. I made some modifications to test additional functions.
+*/
+
 #include <stdio.h>
 #include "node.h"
 #include "queue.h"

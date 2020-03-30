@@ -1,3 +1,10 @@
+/**
+ *  Name: Dan Sedano
+ *  Date: 2020-03-29
+ *  Title: Lab 4 node
+ *  Description: This file provides the structure for a node.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -58,7 +65,3 @@ struct node* node_get_next(struct node* n) {
   temp = n->next;
     return temp; // It'll return the next node or NULL if it's already the last node.
 }
-
-/**
-*
-*/
