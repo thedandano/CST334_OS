@@ -1,4 +1,4 @@
-#Lab 4 Instructions
+# Lab 4 Instructions
 
 ### To Run:
 * Open terminal at file location and use "make" to generate binary file.
