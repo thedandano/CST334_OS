@@ -23,7 +23,6 @@ int main(int argc, char *argv[]){
 
     char pageCache[100]; // Cache that holds the input from test file
 
-    //int i;
     int line_counter = 0;
     int totalFaults = 0; // keeps track of the total page faults
 
@@ -47,20 +46,17 @@ int main(int argc, char *argv[]){
 
       } //else {  printf("%d HIT\n", line_counter);}
 
-      //queue_traverse(q);
-
     }
-    queue_destroy(q); // free's memory
-    free(temp_page);
-    //free(q);
 
     printf("Total valid lines: %d\n", line_counter );
     printf("Total Faults: %d\n", totalFaults);
     double hitRate = (double) (line_counter-totalFaults)/line_counter*100;
     printf("Hit Rate: %.2f%%\n", hitRate);
+    
+    // free memory
+    queue_destroy(q); 
+    node_destroy(temp_page);
 
     return 0;
-
-
 
 }

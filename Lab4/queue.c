@@ -90,20 +90,20 @@ struct node* queue_find(struct queue *q, int data) {
 
 }
 
-/**
- * Deallocate a queue and all snodes
- * @param l pointer to the queue
- */
+// /**
+//  * Deallocate a queue and all snodes
+//  * @param l pointer to the queue
+//  */
 void queue_destroy(struct queue *q) {
   struct node* curr = q->front;
   struct node* next;
   while(curr != NULL) {
-    next = node_get_next(curr);
+    next = curr->next;
     free(curr);
-    curr = node_get_next(next);
+    curr = next;
   }
-    q->front  = NULL;
-
+    q->front = q->back = NULL;
+  
 }
 
 /**
