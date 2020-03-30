@@ -1,7 +1,8 @@
 /**
-* Name: Dan Sedano
-*
-*
+ *  Name: Dan Sedano
+ *  Date: 2020-03-29
+ *  Title: Lab 4 Fifo
+ *  Description: This program simulates the FIFO algorithm for memory management.
 */
 
 #include <stdio.h>

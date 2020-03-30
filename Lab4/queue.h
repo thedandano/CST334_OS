@@ -1,3 +1,10 @@
+/**
+ *  Name: Dan Sedano
+ *  Date: 2020-03-29
+ *  Title: Lab 4 queue.h
+ *  Description: This is the headerfile for queue.
+*/
+
 #ifndef _queue_H_
 #define _queue_H_
 

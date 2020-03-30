@@ -1,3 +1,11 @@
+/**
+ *  Name: Dan Sedano
+ *  Date: 2020-03-29
+ *  Title: Lab 4 queue
+ *  Description: This file provides the structure and methods for a queue
+ *  implemented using linked lists.
+*/
+
 #include <stdint.h>
 #include "node.h"
 
