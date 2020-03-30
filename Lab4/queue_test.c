@@ -9,7 +9,7 @@ struct node *test;
 int main(void)   {
 
     q = queue_create();
-
+    //check lenght right after creation
     printf("Queue length after creation: %d\n", queue_length(q));
 
     enqueue(q, 99);
@@ -20,10 +20,11 @@ int main(void)   {
     enqueue(q, 69);
     enqueue(q, 21);
     enqueue(q, 2);
-
+    
+    //first part of the queue_find function
     test = queue_find(q,201);
     if (test != NULL)
-      printf("Found this: %d\n",test->data);
+      printf("queue_find Found this: %d\n\n",test->data);
 
 
     printf("Here are the top %d integers:\n", queue_length(q));
@@ -38,21 +39,21 @@ int main(void)   {
     dequeue(q);
     dequeue(q);
     dequeue(q);
+
+    //second part of the queue_find function
     test = queue_find(q,201);
     if (test == NULL)
-      printf("not found\n");
-    // if (test != NULL)
-    //   printf("AFTER DEQUEUE Found this: %d\n",test->data);
-    // else
-    //   printf("not found\n");
+      printf("queue_find did not find 201\n\n");
+ 
 
     printf("Here are the top %d integers:\n", queue_length(q));
     printf("Content of the queue as follows.\n");
     queue_traverse(q);
     printf("Queue length right before Destruction: %d\n", queue_length(q));
     queue_destroy(q);
-    //printf("Queue length after destruction: %d\n", queue_length(q));
-  //  queue_traverse(q);
+    //testing the length of the queue after it has been destroyed.
+    printf("Queue length after destruction: %d\n", queue_length(q));
+ 
 
     return 0;
 }

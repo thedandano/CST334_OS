@@ -27,7 +27,7 @@ struct queue *queue_create() {
 struct node* enqueue(struct queue *q, int data) {
   // creates a new linked list node
   struct node* temp = node_create(data);
-
+  // adds the new node to the end of the list
   if(q->back == NULL) {
     q->front = q->back = temp;
     return temp;
@@ -48,13 +48,14 @@ void dequeue(struct queue *q) {
   if (q->front == NULL){
     return;
   }
+  //sets a temp node that of a the front node
   struct node* temp = q->front;
   q->front = q->front->next;
 
   if(q->front == NULL){
     q->back = NULL;
   }
-    free(temp);
+    free(temp); // free's memory
 
 }
 
@@ -76,13 +77,15 @@ struct node* queue_add_front(struct queue *q, int data);
  */
 struct node* queue_find(struct queue *q, int data) {
   struct node* temp = q->front;
-  while (temp != NULL) {
+  
+  while (temp != NULL) { //traverses the list
     if (data == temp->data) {
-      return temp;
-      //temp->data = data;
+      return temp; //returns the node
+
     }
 
-    temp = temp->next;
+    temp = temp->next; //iterates if a match isn't found
+    //temp = node_get_next(temp);
   }
 
   return temp;
@@ -98,9 +101,9 @@ void queue_destroy(struct queue *q) {
   struct node* curr = q->front;
   struct node* next;
   while(curr != NULL) {
-    next = node_get_next(curr);
+    next = curr->next;
     free(curr);
-    curr = node_get_next(next);
+    curr = next->next;
   }
     q->front  = NULL;
 
@@ -114,10 +117,11 @@ void queue_traverse(struct queue *q) {
   int counter = 0;
   struct node* temp = q->front;
   while (temp != NULL) {
-    //printf("%d %d\n",counter, temp->data);
-    printf("%d - ", temp->data);
+    printf("%d %d\n",counter, temp->data);
+    //printf("%d - ", temp->data);
     counter++;
     temp = temp->next;
+    //temp = node_get_next(temp);
   }
   printf("\n");
 }
@@ -131,19 +135,8 @@ uint32_t queue_length(struct queue *q) {
   struct node* temp = q->front;
   while (temp != NULL) {
     temp = temp->next;
+    //temp = node_get_next(temp);
     counter++;
   }
   return counter;
 }
-
-/**
- * Deletes the first snode with the given string.
- * @param l pointer to the queue (non-NULL)
- * @param int int data
- */
-void queue_delete(struct queue *q, int data);
-
-
-struct node* queue_get_front(struct queue* q);
-
-struct node* queue_get_back(struct queue* q);
