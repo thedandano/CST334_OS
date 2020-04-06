@@ -6,11 +6,16 @@
 	gcc -c $*.c
 
 
-all: first
+all: threadHello threadHelloFixed  matrix_multiplication
 
-first: first.c
-	gcc -g -o first first.c -Wall -pthread
+threadHello: threadHello.c
+	gcc -g -o threadHello threadHello.c -Wall -pthread
 
+threadHelloFixed: threadHelloFixed.c
+	gcc -g -o threadHelloFixed threadHelloFixed.c -Wall -pthread
+
+matrix_multiplication: matrix_multiplication.c
+	gcc -g -o matrix_multiplication matrix_multiplication.c -Wall -pthread
 
 clean:
-	rm  first
+	rm  threadHello threadHelloFixed matrix_multiplication
