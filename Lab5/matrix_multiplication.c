@@ -1,15 +1,23 @@
+/**
+ * Name: Dan Sedano
+ * Date: 2020-06-04
+ * Title: Lab 5 - Matrix Multiplcation
+ * Description: This program multiplies a matrix by spliting up the work amongst mutiple threads.
+ * It divides the work by createing one thread to compute each value of each row.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
 //constants
 #define N 10
 #define M 10
-#define L 5
-#define WIDTH 7
+#define L 10
+#define WIDTH 7 // holds the width for printf
 
 //global matrix array variables
-double matrixA[N][M];// = {{5,6}, {2,4}};
-double matrixB[M][L];// = {{1,3}, {7,9}};
+double matrixA[N][M];
+double matrixB[M][L];
 double matrixC[N][L];
 
 //struct to hold data
@@ -23,11 +31,10 @@ thread_t *ptr[N];
 
 // function prototypes
 void *multiply(void *arg);
-void printMatrix (double matrixTemp[][10], int xrows, int ycols);
+void printMatrix (double matrixTemp[][0], int xrows, int ycols);
 
 /**
- * 
- * 
+ * The main function for this program
  */
 int main () {
 
@@ -38,7 +45,6 @@ int main () {
         }
     }
 
-    //srand(time (NULL));
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
             matrixB[i][j] = rand() % 20;
@@ -47,9 +53,9 @@ int main () {
 
     // Print A
     printf("Matrix A:\n");
-    for (int columns = 0; columns < N; columns++) {
-        for (int rows = 0; rows < M; rows++) {
-            printf(" %-*.2f ", WIDTH , matrixA[columns][rows]);
+    for (int rows = 0; rows < N; rows++) {
+        for (int columns = 0; columns < M; columns++) {
+            printf(" %-*.2f ", WIDTH , matrixA[rows][columns]);
         }
         printf("\n");
     }
@@ -81,12 +87,13 @@ int main () {
         pthread_join(threads[i],NULL);
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
     //print C
-    //printMatrix(matrixC,N,L);
     printf("\nMatrix C:\n");
-    for (int columns = 0; columns < N; columns++) {
-        for (int rows = 0; rows < L; rows++) {
-            printf(" %-*.2f ", WIDTH, matrixC[columns][rows]);
+    //printMatrix(matrixC,N,L);
+    for (int rows = 0; rows < N; rows++) {
+        for (int columns = 0; columns < L; columns++) {
+            printf(" %-*.2f ", WIDTH, matrixC[rows][columns]);
         }
         printf("\n");
     }
@@ -97,39 +104,34 @@ int main () {
 }
 
 /**
- * 
- * 
+ * This function is used by each thread to compute the values of a matrix.
+ * @param void *arg
  */
 void *multiply (void *arg) {
-    //printf("start of multiply\n");
-
+    // holds the argument in a pointer
     thread_t *temp = (thread_t *) arg;
-    //printf("%d\n", temp->position);
-    int position = temp->threadnum;
+    //passes the arguments data into an int for usage provides the offset for the each thread
+    int i = temp->threadnum;
 
     for (int j = 0; j < L; j++) {
         double temp = 0;
         for (int k = 0; k < M; k++) {
-            temp += matrixA[position][k] * matrixB[k][j];
-            // printf("Matrix A: %f\n", matrixA[j][k]);
-            // printf("Matrix B: %f\n", matrixB[k][j]);
-            // printf("Temp is: %f \n\n", temp);
+            temp += matrixA[i][k] * matrixB[k][j];
         }
-        matrixC[position][j] = temp;
-        //printf("Temp: %.2f\n", temp);
+        matrixC[i][j] = temp;
     }
     return 0;
 }
 
 
 /**
- * 
- * 
+ * This function prints out each matrix.
+ * @param double matrix[][], int xrows, int ycols
  */ 
-void printMatrix (double matrixTemp[][10], int xrows, int ycols) {
+void printMatrix (double matrixTemp[][0], int xrows, int ycols) {
     for (int x = 0; x < xrows; x++) {
         for ( int y = 0; y < ycols; y++) {
-            printf(" %f ", matrixTemp[x][y]);
+            printf(" %-*.2f ", WIDTH, matrixTemp[x][y]);
         }
         printf("\n");
     }
