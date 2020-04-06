@@ -37,7 +37,8 @@ void printMatrix (double matrixTemp[][0], int xrows, int ycols);
  * The main function for this program
  */
 int main () {
-
+    
+    // Fills matrixA with random numbers
     srand(time (NULL));
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
@@ -45,13 +46,14 @@ int main () {
         }
     }
 
+    // Fills matrixB with random numbers
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
             matrixB[i][j] = rand() % 20;
         }
     }
 
-    // Print A
+    // Prints matrixA
     printf("Matrix A:\n");
     for (int rows = 0; rows < N; rows++) {
         for (int columns = 0; columns < M; columns++) {
@@ -60,7 +62,7 @@ int main () {
         printf("\n");
     }
 
-    // Print B
+    // Prints matrixB
     printf("\nMatrix B: \n");
     for (int rows = 0; rows < M; rows++) {
         for (int columns = 0; columns < L; columns++) {
@@ -70,25 +72,23 @@ int main () {
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Create the Threads
+    // Creates the Threads. One thread for every row.
     for (int i = 0; i < N; i++) {
         ptr[i] = malloc(sizeof(thread_t));
         ptr[i]->threadnum = i;
 
-        // printf("Position %d\n", i);
-        
         //create threads
         pthread_create(&threads[i],NULL,multiply,ptr[i]);
     }
 
-    // Wait for threads
+    // Waits for each thread
     for (int i = 0; i < N; i++) {
         //wait for threads here
         pthread_join(threads[i],NULL);
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //print C
+    // Prints  matrixC (the calculated matrix).
     printf("\nMatrix C:\n");
     //printMatrix(matrixC,N,L);
     for (int rows = 0; rows < N; rows++) {
@@ -111,7 +111,7 @@ void *multiply (void *arg) {
     // holds the argument in a pointer
     thread_t *temp = (thread_t *) arg;
     //passes the arguments data into an int for usage provides the offset for the each thread
-    int i = temp->threadnum;
+    int i = temp->threadnum; 
 
     for (int j = 0; j < L; j++) {
         double temp = 0;
@@ -120,6 +120,7 @@ void *multiply (void *arg) {
         }
         matrixC[i][j] = temp;
     }
+    free(temp); // frees pointer memory
     return 0;
 }
 

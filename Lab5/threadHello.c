@@ -1,3 +1,11 @@
+/**
+ * Name: Dan Sedano
+ * Date: 2020-06-04
+ * Title: Lab 5 - Thread Hello
+ * Description: This program shows how unsyncronized thread operations can lead to underminate 
+ * programs.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
