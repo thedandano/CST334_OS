@@ -22,3 +22,8 @@ CST334 Labs
 ### Objectives
 * To simulate a basic page replacement algorithm (FIFO)
 * To evaluate the performance in terms of miss/hit rate of this algorithm
+
+## Lab5: Developing Multi-Threaded Applications
+### Objectives
+* To develop multi-threaded application programs
+* To demonstrate the use of threads in matrix multiplication
