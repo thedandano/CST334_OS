@@ -2,7 +2,7 @@
  * Name: Dan Sedano
  * Date: 2020-06-04
  * Title: Lab 5 - Thread Hello
- * Description: This program shows how unsyncronized thread operations can lead to underminate 
+ * Description: This program shows how unsyncronized thread operations can lead to undeterminate 
  * programs.
  */
 

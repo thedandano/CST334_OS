@@ -31,7 +31,7 @@ thread_t *ptr[N];
 
 // function prototypes
 void *multiply(void *arg);
-void printMatrix (double matrixTemp[][0], int xrows, int ycols);
+void printMatrix (double matrixTemp[][L], int xrows, int ycols);
 
 /**
  * The main function for this program
@@ -129,7 +129,7 @@ void *multiply (void *arg) {
  * This function prints out each matrix.
  * @param double matrix[][], int xrows, int ycols
  */ 
-void printMatrix (double matrixTemp[][0], int xrows, int ycols) {
+void printMatrix (double matrixTemp[][L], int xrows, int ycols) {
     for (int x = 0; x < xrows; x++) {
         for ( int y = 0; y < ycols; y++) {
             printf(" %-*.2f ", WIDTH, matrixTemp[x][y]);
