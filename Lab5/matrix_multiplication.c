@@ -129,7 +129,7 @@ void *multiply (void *arg) {
  * This function prints out each matrix.
  * @param double matrix[][], int xrows, int ycols
  */ 
-void printMatrix (double matrixTemp[][L], int xrows, int ycols) {
+void printMatrix (double matrixTemp[][L], int xrows, int ycols) { // This works, but I'm not comfortable using it. Not dynamic enough.
     for (int x = 0; x < xrows; x++) {
         for ( int y = 0; y < ycols; y++) {
             printf(" %-*.2f ", WIDTH, matrixTemp[x][y]);
