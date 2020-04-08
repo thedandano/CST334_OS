@@ -26,8 +26,8 @@ int main()
     }
     for (i = 0; i < NTHREADS; i++)
     {
-        printf("Thread %d returned\n", i);
         pthread_join(threads[i], NULL);
+        printf("Thread %d returned\n", i);
     }
     printf("Main thread done.\n");
     //free(ptr);
