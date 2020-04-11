@@ -12,7 +12,7 @@
 #include <semaphore.h> 
 
 #define MAX_LOOPS 26
-#define BUFFER_SIZE 4 // tested this with different sizes and it works beautifully!
+#define BUFFER_SIZE 6 // tested this with different sizes and it works beautifully!
 pthread_t producer_t;
 pthread_t consumer_t;
 sem_t full, empty, mutex;
