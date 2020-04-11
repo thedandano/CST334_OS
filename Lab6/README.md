@@ -1,7 +1,7 @@
 # Lab 6 Instructions
 
 ### Description
-This Lab solves the producer/consumer problem using the alphabet.
+This Lab solves the producer/consumer problem using semaphores and the alphabet.
 <br /><br />Note: `threadsync.c` was provided by Prof. Lamble at CSUMB, and `threadSync3.c` is just my experiment for the same problem using many threads.
 
 ### To Run:
@@ -37,8 +37,8 @@ w
 x
 y
 z
-Thread 0 returned
-Thread 1 returned
+Thread producer_t returned
+Thread consumer_t returned
 Main thread done.
 ```
 
