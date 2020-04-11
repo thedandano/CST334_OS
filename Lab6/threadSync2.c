@@ -96,7 +96,7 @@ void *consumer() {
 
 int main() {
     sem_init(&full,0,0);
-    sem_init(&empty,0,BUFFER_SIZE); // when buffer size is 0 this will
+    sem_init(&empty,0,BUFFER_SIZE); // initialized to block producer when buffer is full
     sem_init(&mutex,0,1); //binary semaphore lock
 
     pthread_create(&producer_t, NULL, producer,NULL); // creates the producer thread
