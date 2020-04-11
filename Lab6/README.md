@@ -1,7 +1,7 @@
 # Lab 6 Instructions
 
 ### Description
-This Lab solves the producer/consumer problem.
+This Lab solves the producer/consumer problem using the alphabet.
 
 ### To Run:
 * Open Unix based terminal at file location and use "make" to generate binary files
