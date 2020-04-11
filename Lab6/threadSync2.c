@@ -12,7 +12,7 @@
 #include <semaphore.h> 
 
 #define MAX_LOOPS 26
-#define BUFFER_SIZE 6 // tested this with different sizes and it works beautifully!
+#define BUFFER_SIZE 1 // tested this with different sizes and it works beautifully!
 pthread_t producer_t;
 pthread_t consumer_t;
 sem_t full, empty, mutex;
@@ -24,12 +24,11 @@ int use = 0;
 void put(int value) {
     buffer[fill] = value;
     fill = (fill + 1) % BUFFER_SIZE;
-    
 }
 
 char get() {
     char temp = buffer[use];
-    buffer[use] = '\0';
+    buffer[use] = ' ';
     use = (use + 1) % BUFFER_SIZE;
     return temp;
 }
@@ -44,8 +43,8 @@ void *producer(void *arg) {
         sem_wait(&mutex);
         //add item to buffer
         put(prodTemp);
-        // printf("->PUT: %c\n",prodTemp); // tracer
-        // printf("buffer: [%s]\n",buffer); // tracer
+        printf("->PUT: %c\n",prodTemp); // tracer
+        printf("buffer: [%s]\n",buffer); // tracer
         prodTemp++;
         sem_post(&mutex);
         sem_post(&full);
@@ -60,18 +59,19 @@ void *consumer(void *arg) {
     int counter = 0;
     
     do{
+    
         sem_wait(&full);
         sem_wait(&mutex);
         // remove next item from buffer
         temp = get();
-        // printf("<-GET: %c\n",temp); //tracer
+        printf("<-GET: %c\n",temp); //tracer
+        printf("buffer: [%s]\n",buffer); // tracer
         sem_post(&mutex);
         sem_post(&empty);
         // consume the item
-        printf("%c\n",temp);
+        //printf("%c\n",temp);
         counter++;
     }while(counter < MAX_LOOPS);
-    // printf("buffer: [%s]\n",buffer); // tracer
     return NULL;
 }
 
@@ -84,9 +84,9 @@ int main() {
     pthread_create(&consumer_t, NULL, consumer,NULL);
 
     pthread_join(producer_t,NULL);
-    printf("Thread %d returned \n", 0);
+    printf("Thread producer_t returned \n");
     pthread_join(consumer_t,NULL);
-    printf("Thread %d returned \n", 1);
+    printf("Thread consumer_t returned \n");
 
     printf("Main thread done.\n");
     //drop the semaphones when finished. 

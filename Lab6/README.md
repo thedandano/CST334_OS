@@ -48,84 +48,109 @@ Main thread done.
 ->PUT: a   
 buffer: [a]
 <-GET: a   
+buffer: [ ]
 ->PUT: b   
 buffer: [b]
 <-GET: b   
+buffer: [ ]
 ->PUT: c   
 buffer: [c]
 <-GET: c   
+buffer: [ ]
 ->PUT: d   
 buffer: [d]
 <-GET: d   
+buffer: [ ]
 ->PUT: e   
 buffer: [e]
 <-GET: e   
+buffer: [ ]
 ->PUT: f   
 buffer: [f]
 <-GET: f   
-->PUT: g
+buffer: [ ]
+->PUT: g   
 buffer: [g]
 <-GET: g
+buffer: [ ]
 ->PUT: h
 buffer: [h]
 <-GET: h
+buffer: [ ]
 ->PUT: i
 buffer: [i]
 <-GET: i
+buffer: [ ]
 ->PUT: j
 buffer: [j]
 <-GET: j
+buffer: [ ]
 ->PUT: k
 buffer: [k]
 <-GET: k
+buffer: [ ]
 ->PUT: l
 buffer: [l]
 <-GET: l
+buffer: [ ]
 ->PUT: m
 buffer: [m]
 <-GET: m
+buffer: [ ]
 ->PUT: n
 buffer: [n]
 <-GET: n
+buffer: [ ]
 ->PUT: o
 buffer: [o]
 <-GET: o
+buffer: [ ]
 ->PUT: p
 buffer: [p]
 <-GET: p
+buffer: [ ]
 ->PUT: q
 buffer: [q]
 <-GET: q
+buffer: [ ]
 ->PUT: r
 buffer: [r]
 <-GET: r
+buffer: [ ]
 ->PUT: s
 buffer: [s]
 <-GET: s
+buffer: [ ]
 ->PUT: t
 buffer: [t]
 <-GET: t
+buffer: [ ]
 ->PUT: u
 buffer: [u]
 <-GET: u
+buffer: [ ]
 ->PUT: v
 buffer: [v]
 <-GET: v
+buffer: [ ]
 ->PUT: w
 buffer: [w]
 <-GET: w
+buffer: [ ]
 ->PUT: x
 buffer: [x]
 <-GET: x
+buffer: [ ]
 ->PUT: y
 buffer: [y]
 <-GET: y
+buffer: [ ]
 ->PUT: z
 buffer: [z]
 <-GET: z
-buffer: []
-Thread 0 returned
-Thread 1 returned
+buffer: [ ]
+Thread producer_t returned
+Thread consumer_t returned 
 Main thread done.
 ```
 #### threadSync2 with a buffer size of 6
@@ -143,73 +168,98 @@ buffer: [abcde]
 ->PUT: f        
 buffer: [abcdef]
 <-GET: a        
+buffer: [ bcdef]
 <-GET: b        
+buffer: [  cdef]
 <-GET: c        
+buffer: [   def]
 <-GET: d        
+buffer: [    ef]
 <-GET: e        
+buffer: [     f]
 <-GET: f        
-->PUT: g        
-buffer: [g]     
-->PUT: h        
-buffer: [gh]    
-->PUT: i        
-buffer: [ghi]   
+buffer: [      ]
+->PUT: g
+buffer: [g     ]
+->PUT: h
+buffer: [gh    ]
+->PUT: i
+buffer: [ghi   ]
 ->PUT: j
-buffer: [ghij]
+buffer: [ghij  ]
 ->PUT: k
-buffer: [ghijk]
+buffer: [ghijk ]
 ->PUT: l
 buffer: [ghijkl]
 <-GET: g
+buffer: [ hijkl]
 <-GET: h
+buffer: [  ijkl]
 <-GET: i
+buffer: [   jkl]
 <-GET: j
+buffer: [    kl]
 <-GET: k
+buffer: [     l]
 <-GET: l
+buffer: [      ]
 ->PUT: m
-buffer: [m]
+buffer: [m     ]
 ->PUT: n
-buffer: [mn]
+buffer: [mn    ]
 ->PUT: o
-buffer: [mno]
+buffer: [mno   ]
 ->PUT: p
-buffer: [mnop]
+buffer: [mnop  ]
 ->PUT: q
-buffer: [mnopq]
+buffer: [mnopq ]
 ->PUT: r
 buffer: [mnopqr]
 <-GET: m
+buffer: [ nopqr]
 <-GET: n
+buffer: [  opqr]
 <-GET: o
+buffer: [   pqr]
 <-GET: p
+buffer: [    qr]
 <-GET: q
+buffer: [     r]
 <-GET: r
+buffer: [      ]
 ->PUT: s
-buffer: [s]
+buffer: [s     ]
 ->PUT: t
-buffer: [st]
+buffer: [st    ]
 ->PUT: u
-buffer: [stu]
+buffer: [stu   ]
 ->PUT: v
-buffer: [stuv]
+buffer: [stuv  ]
 ->PUT: w
-buffer: [stuvw]
+buffer: [stuvw ]
 ->PUT: x
 buffer: [stuvwx]
 <-GET: s
+buffer: [ tuvwx]
 <-GET: t
+buffer: [  uvwx]
 <-GET: u
+buffer: [   vwx]
 <-GET: v
+buffer: [    wx]
 <-GET: w
+buffer: [     x]
 <-GET: x
+buffer: [      ]
 ->PUT: y
-buffer: [y]
+buffer: [y     ]
 ->PUT: z
-buffer: [yz]
+buffer: [yz    ]
 <-GET: y
+buffer: [ z    ]
 <-GET: z
-buffer: []
-Thread 0 returned
-Thread 1 returned
+buffer: [      ]
+Thread producer_t returned
+Thread consumer_t returned
 Main thread done.
 ```
