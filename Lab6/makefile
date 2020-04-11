@@ -6,10 +6,13 @@
 	gcc -c $*.c
 
 
-all: threadSync
+all: threadSync2 threadSync
 
 threadSync: threadSync.c
-	gcc -g -o threadSync threadSync.c -Wall -pthread
+	gcc -o threadSync threadSync.c -l pthread -Wall -Werror
+
+threadSync2: threadSync.c
+	gcc -o threadSync2 threadSync2.c -l pthread -Wall -Werror
 
 clean:
-	rm threadSync
+	rm threadSync threadSync2
