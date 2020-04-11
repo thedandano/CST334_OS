@@ -27,3 +27,8 @@ CST334 Labs
 ### Objectives
 * To develop multi-threaded application programs
 * To demonstrate the use of threads in matrix multiplication
+
+## Lab 6: Synchronization Using Semaphores
+### Objectives
+* To use semaphores for synchronization
+* To develop a C program to solve the producer - consumer problem
