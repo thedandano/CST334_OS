@@ -8,9 +8,41 @@ This Lab solves the producer/consumer problem.
 * Then use the command `./threadSync2` to run program
 
 ### Output Samples:
+#### threadSync2 
+```
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+Thread 0 returned
+Thread 1 returned
+Main thread done.
+```
 
 ### Output Sample with Tracers
-#### Buffer size of 1
+#### threadSync2 with a buffer size of 1
 ```
 ->PUT: a   
 buffer: [a]
@@ -95,7 +127,7 @@ Thread 0 returned
 Thread 1 returned
 Main thread done.
 ```
-#### Buffer size of 6
+#### threadSync2 with a buffer size of 6
 ```
 ->PUT: a        
 buffer: [a]     

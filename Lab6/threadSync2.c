@@ -20,7 +20,6 @@ sem_t full, empty, mutex;
 char buffer[BUFFER_SIZE];
 int fill = 0;
 int use = 0;
-// char prodTemp = 'a';
 
 void put(int value) {
     buffer[fill] = value;
@@ -45,8 +44,8 @@ void *producer(void *arg) {
         sem_wait(&mutex);
         //add item to buffer
         put(prodTemp);
-        printf("->PUT: %c\n",prodTemp); // tracer
-        printf("buffer: [%s]\n",buffer); // tracer
+        // printf("->PUT: %c\n",prodTemp); // tracer
+        // printf("buffer: [%s]\n",buffer); // tracer
         prodTemp++;
         sem_post(&mutex);
         sem_post(&full);
@@ -65,15 +64,14 @@ void *consumer(void *arg) {
         sem_wait(&mutex);
         // remove next item from buffer
         temp = get();
-        printf("<-GET: %c\n",temp); //tracer
-
+        // printf("<-GET: %c\n",temp); //tracer
         sem_post(&mutex);
         sem_post(&empty);
         // consume the item
-        //printf("%c\n",temp);
+        printf("%c\n",temp);
         counter++;
     }while(counter < MAX_LOOPS);
-    printf("buffer: [%s]\n",buffer);
+    // printf("buffer: [%s]\n",buffer); // tracer
     return NULL;
 }
 
