@@ -2,7 +2,7 @@
 
 ### Description
 This Lab solves the producer/consumer problem using the alphabet.
-Note: threadsync.c was provided by Prof. Lamble at CSUMB and threadSync3 is just my playground for the same problem using many threads.
+<br />Note: threadsync.c was provided by Prof. Lamble at CSUMB and threadSync3 is just my playground for the same problem using many threads.
 
 ### To Run:
 * Open Unix based terminal at file location and use "make" to generate binary files
