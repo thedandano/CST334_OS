@@ -1,7 +1,7 @@
 /**
  * Name: Dan Sedano
  * Date 2020-11-04
- * Title: Lab 6 - Solving the consumer/producer problem.
+ * Title: Lab 6 - Solving the consumer/producer problem using semaphores.
  * Description: This program solves the consumer/producer problem using semaphors
  * for synchornization and locking.
  */
