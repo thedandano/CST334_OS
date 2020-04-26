@@ -6,7 +6,7 @@ This Lab solves the producer/consumer problem using semaphores and the alphabet.
 
 ### To Run:
 * Open Unix based terminal at file location and use "make" to generate binary files
-* Then use the command `./threadSync2` to run program
+* Then use the command `./threadSync2` to run the program
 
 ### Output Samples:
 #### threadSync2 
